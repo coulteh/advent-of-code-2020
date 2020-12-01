@@ -1,5 +1,6 @@
 from itertools import combinations
 from math import prod
+
 input = [
     1686,
     1983,
@@ -207,24 +208,24 @@ target = 2020
 # Part one
 length = len(input)
 for i in range(0, length):
-    for j in range(i+1, length):
+    for j in range(i + 1, length):
         if input[i] + input[j] == target:
             print(input[i] * input[j])
-            
+
 # Part two
 length = len(input)
 for i in range(0, length):
-    for j in range(i+1, length):
-        for k in range(j+1, length):
+    for j in range(i + 1, length):
+        for k in range(j + 1, length):
             if input[i] + input[j] + input[k] == target:
                 print(input[i] * input[j] * input[k])
 
 # Part one redux
-for combo in combinations(input,2):
+for combo in combinations(input, 2):
     if sum(combo) == target:
         print(prod(combo))
 
 # Part two redux
-for combo in combinations(input,3):
+for combo in combinations(input, 3):
     if sum(combo) == target:
         print(prod(combo))
