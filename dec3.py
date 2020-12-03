@@ -344,9 +344,9 @@ def move_toboggan(origin_coords, move_x, move_y, map_width):
 def go_tobogganing(map, starting_coords, move_x, move_y):
     trees_hit = 0
     coords = starting_coords
+    if check_for_trees(map, starting_coords):
+        raise Exception("Can't start on a tree, bad input file")
     while coords[0] < MAP_LENGTH:
-        if check_for_trees(map, starting_coords):
-            raise Exception("Can't start on a tree, bad input file")
         if check_for_trees(map, coords):
             trees_hit += 1
         coords = move_toboggan(coords, move_x, move_y, MAP_WIDTH)
